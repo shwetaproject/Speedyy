@@ -7,21 +7,51 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		12644DD72A04CD4400488663 /* RegisterNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DD62A04CD4400488663 /* RegisterNewUser.swift */; };
+		12644DD92A04CDDF00488663 /* VerifyOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DD82A04CDDF00488663 /* VerifyOTP.swift */; };
+		12644DDB2A04CE3600488663 /* LoginPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */; };
+		12644DDD2A04CEDC00488663 /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDC2A04CEDC00488663 /* ApiCaller.swift */; };
+		12644DDF2A04EF1000488663 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDE2A04EF1000488663 /* HomeViewController.swift */; };
+		12644DE12A04F0EE00488663 /* RegistrationOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */; };
+		12644DE32A04FF7900488663 /* LoginOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DE22A04FF7900488663 /* LoginOTPResponse.swift */; };
+		12644DE52A050E7600488663 /* MainTabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DE42A050E7500488663 /* MainTabBarViewController.swift */; };
+		12644DE72A050F3600488663 /* ProfileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DE62A050F3600488663 /* ProfileViewController.swift */; };
+		126CE4792A03F7CE005A5FA3 /* UITextFieldExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 126CE4782A03F7CE005A5FA3 /* UITextFieldExtension.swift */; };
 		127851FF2A03790800929F2E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127851FE2A03790800929F2E /* AppDelegate.swift */; };
 		127852012A03790800929F2E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852002A03790800929F2E /* SceneDelegate.swift */; };
-		127852032A03790800929F2E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852022A03790800929F2E /* ViewController.swift */; };
+		127852032A03790800929F2E /* OnboardingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852022A03790800929F2E /* OnboardingViewController.swift */; };
 		127852082A03790900929F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127852072A03790900929F2E /* Assets.xcassets */; };
 		1278520B2A03790900929F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127852092A03790900929F2E /* LaunchScreen.storyboard */; };
+		127852132A03979000929F2E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852122A03979000929F2E /* OnboardingCollectionViewCell.swift */; };
+		127852152A03AEAC00929F2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852142A03AEAC00929F2E /* LoginViewController.swift */; };
+		127852172A03AEBB00929F2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852162A03AEBB00929F2E /* RegisterViewController.swift */; };
+		1278521B2A03C59A00929F2E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */; };
+		1278521D2A03D38200929F2E /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		12644DD62A04CD4400488663 /* RegisterNewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUser.swift; sourceTree = "<group>"; };
+		12644DD82A04CDDF00488663 /* VerifyOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTP.swift; sourceTree = "<group>"; };
+		12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneNumber.swift; sourceTree = "<group>"; };
+		12644DDC2A04CEDC00488663 /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
+		12644DDE2A04EF1000488663 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationOTPResponse.swift; sourceTree = "<group>"; };
+		12644DE22A04FF7900488663 /* LoginOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOTPResponse.swift; sourceTree = "<group>"; };
+		12644DE42A050E7500488663 /* MainTabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainTabBarViewController.swift; sourceTree = "<group>"; };
+		12644DE62A050F3600488663 /* ProfileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileViewController.swift; sourceTree = "<group>"; };
+		126CE4782A03F7CE005A5FA3 /* UITextFieldExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UITextFieldExtension.swift; sourceTree = "<group>"; };
 		127851FB2A03790800929F2E /* Speedyy.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Speedyy.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		127851FE2A03790800929F2E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		127852002A03790800929F2E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		127852022A03790800929F2E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		127852022A03790800929F2E /* OnboardingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingViewController.swift; sourceTree = "<group>"; };
 		127852072A03790900929F2E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		1278520A2A03790900929F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1278520C2A03790900929F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		127852122A03979000929F2E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
+		127852142A03AEAC00929F2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		127852162A03AEBB00929F2E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
+		1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -35,6 +65,26 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		12644DD42A04CD2100488663 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+				12644DD62A04CD4400488663 /* RegisterNewUser.swift */,
+				12644DD82A04CDDF00488663 /* VerifyOTP.swift */,
+				12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */,
+				12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */,
+				12644DE22A04FF7900488663 /* LoginOTPResponse.swift */,
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		12644DD52A04CD2A00488663 /* NetworkManager */ = {
+			isa = PBXGroup;
+			children = (
+				12644DDC2A04CEDC00488663 /* ApiCaller.swift */,
+			);
+			path = NetworkManager;
+			sourceTree = "<group>";
+		};
 		127851F22A03790800929F2E = {
 			isa = PBXGroup;
 			children = (
@@ -54,14 +104,41 @@
 		127851FD2A03790800929F2E /* Speedyy */ = {
 			isa = PBXGroup;
 			children = (
+				12644DD52A04CD2A00488663 /* NetworkManager */,
+				12644DD42A04CD2100488663 /* Models */,
+				127852192A03B8D800929F2E /* Views */,
+				127852182A03B8BD00929F2E /* ViewControllers */,
 				127851FE2A03790800929F2E /* AppDelegate.swift */,
 				127852002A03790800929F2E /* SceneDelegate.swift */,
-				127852022A03790800929F2E /* ViewController.swift */,
 				127852072A03790900929F2E /* Assets.xcassets */,
 				127852092A03790900929F2E /* LaunchScreen.storyboard */,
 				1278520C2A03790900929F2E /* Info.plist */,
+				126CE4782A03F7CE005A5FA3 /* UITextFieldExtension.swift */,
 			);
 			path = Speedyy;
+			sourceTree = "<group>";
+		};
+		127852182A03B8BD00929F2E /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+				127852022A03790800929F2E /* OnboardingViewController.swift */,
+				1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */,
+				127852142A03AEAC00929F2E /* LoginViewController.swift */,
+				127852162A03AEBB00929F2E /* RegisterViewController.swift */,
+				1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */,
+				12644DDE2A04EF1000488663 /* HomeViewController.swift */,
+				12644DE42A050E7500488663 /* MainTabBarViewController.swift */,
+				12644DE62A050F3600488663 /* ProfileViewController.swift */,
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		127852192A03B8D800929F2E /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				127852122A03979000929F2E /* OnboardingCollectionViewCell.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -134,9 +211,24 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				127852032A03790800929F2E /* ViewController.swift in Sources */,
+				127852032A03790800929F2E /* OnboardingViewController.swift in Sources */,
+				12644DDD2A04CEDC00488663 /* ApiCaller.swift in Sources */,
+				12644DDB2A04CE3600488663 /* LoginPhoneNumber.swift in Sources */,
+				12644DE52A050E7600488663 /* MainTabBarViewController.swift in Sources */,
+				12644DD92A04CDDF00488663 /* VerifyOTP.swift in Sources */,
+				126CE4792A03F7CE005A5FA3 /* UITextFieldExtension.swift in Sources */,
+				12644DE72A050F3600488663 /* ProfileViewController.swift in Sources */,
+				12644DDF2A04EF1000488663 /* HomeViewController.swift in Sources */,
 				127851FF2A03790800929F2E /* AppDelegate.swift in Sources */,
+				1278521B2A03C59A00929F2E /* ViewControllerExtension.swift in Sources */,
 				127852012A03790800929F2E /* SceneDelegate.swift in Sources */,
+				127852172A03AEBB00929F2E /* RegisterViewController.swift in Sources */,
+				12644DD72A04CD4400488663 /* RegisterNewUser.swift in Sources */,
+				12644DE12A04F0EE00488663 /* RegistrationOTPResponse.swift in Sources */,
+				12644DE32A04FF7900488663 /* LoginOTPResponse.swift in Sources */,
+				127852152A03AEAC00929F2E /* LoginViewController.swift in Sources */,
+				127852132A03979000929F2E /* OnboardingCollectionViewCell.swift in Sources */,
+				1278521D2A03D38200929F2E /* VerifyOTPViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -275,6 +367,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2SHALJXA8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Speedyy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -301,6 +394,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
+				DEVELOPMENT_TEAM = A2SHALJXA8;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Speedyy/Info.plist;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
