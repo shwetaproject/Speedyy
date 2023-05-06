@@ -8,13 +8,13 @@
 import Foundation
 
 protocol LoginInteractorProtocol {
-    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, Error>) -> Void)
+    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, ApiError>) -> Void)
 }
 
 class LoginInteractor: LoginInteractorProtocol {
     var loginServiceManager: LoginServiceManagerProtocol?
 
-    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, Error>) -> Void) {
+    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, ApiError>) -> Void) {
         loginServiceManager?.loginUser(phoneNumber: phoneNumber) { result in
             switch result {
             case .success():

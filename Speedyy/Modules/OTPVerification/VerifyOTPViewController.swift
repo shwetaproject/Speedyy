@@ -7,15 +7,24 @@
 
 import UIKit
 
+protocol VerifyOTPViewProtocol: AnyObject {
+    func loginVerificationDidSuccess(loginResult: LoginOTPResult)
+    func registrationVerificationDidSuccess(registrationResult: RegistrationOTPResult)
+    func resendLoginOTPDidSuccess()
+    func resendRegistrationOTPDidSuccess()
+    func showError(error: ApiError)
+}
+
 class VerifyOTPViewController: UIViewController {
 
     private var otpString = ""
     private var phoneNumber: String?
     private var subTitleLabelText = "Enter the code we just sent to\n"
-    private var loginServiceManagerDelegate: LoginServiceManagerProtocol?
-    private var registrationServiceManagerDelegate: RegistrationServiceManagerProtocol?
 
     private var userInfo: RegisterNewUser?
+
+    var verifyOTPPresenter: VerifyOTPPresenterProtocol?
+    var verifyRouter: VerifyOTPRouterProtocol?
 
     var time = 0
     var timer: Timer?
@@ -267,14 +276,6 @@ class VerifyOTPViewController: UIViewController {
         dismiss(animated: false)
     }
 
-    @objc private func didChangeTextField(textField: UITextField) {
-        guard let text = textField.text, text.count == 10, NSCharacterSet(charactersIn: "0123456789").isSuperset(of: NSCharacterSet(charactersIn: text) as CharacterSet) else {
-            continueButton.isEnabled = false
-            return
-        }
-        continueButton.isEnabled = true
-    }
-
     func startEvent() {
         time = 0
         timerLabel.isHidden = false
@@ -305,27 +306,12 @@ class VerifyOTPViewController: UIViewController {
 
     @objc private func didTapResendOtp() {
         if let userInfo {
-            startEvent()
-            registrationServiceManagerDelegate?.registerUser(userInfo: userInfo) { result in
-                switch result {
-                case .success():
-                    print("resent otp")
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            verifyOTPPresenter?.registerUser(userInfo: userInfo)
         } else if let phoneNumber {
-            startEvent()
             let loginPhNo = LoginPhoneNumber(phone: phoneNumber)
-            loginServiceManagerDelegate?.loginUser(phoneNumber: loginPhNo) { result in
-                switch result {
-                case .success():
-                    print("resent otp")
-                case .failure(let error):
-                    print(error)
-                }
-            }
+            verifyOTPPresenter?.loginUser(phoneNumber: loginPhNo)
         }
+        startEvent()
     }
 
     @objc private func didTapContinueBtn() {
@@ -333,34 +319,34 @@ class VerifyOTPViewController: UIViewController {
             verifyLoginOtp()
             return }
         let otp = VerifyOTP(phone: userInfo.phone, otp: otpString)
-        registrationServiceManagerDelegate?.verifyRegistrationOtp(otp: otp) { [weak self] result in
-            switch result {
-            case .success(let result):
-                DispatchQueue.main.async {
-                    let homeVC = MainTabBarViewController(registrationOTPResult: result)
-                    homeVC.modalPresentationStyle = .overFullScreen
-                    self?.present(homeVC, animated: true)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        verifyOTPPresenter?.verifyRegistrationOtp(otp: otp)
     }
 
     private func verifyLoginOtp() {
         guard let phoneNumber else { return }
         let otp = VerifyOTP(phone: phoneNumber, otp: otpString)
-        loginServiceManagerDelegate?.verifyLoginOtp(otp: otp) { [weak self] result in
-            switch result {
-            case .success(let result):
-                DispatchQueue.main.async {
-                    let homeVC = MainTabBarViewController(loginOtpResponse: result)
-                    homeVC.modalPresentationStyle = .overFullScreen
-                    self?.present(homeVC, animated: true)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
+        verifyOTPPresenter?.verifyLoginOtp(otp: otp)
+    }
+}
+
+extension VerifyOTPViewController: VerifyOTPViewProtocol {
+    func loginVerificationDidSuccess(loginResult: LoginOTPResult) {
+        verifyRouter?.navigateLoginToHome(result: loginResult, hostVC: self)
+    }
+
+    func registrationVerificationDidSuccess(registrationResult: RegistrationOTPResult) {
+        verifyRouter?.navigateRegistrationToHome(result: registrationResult, hostVC: self)
+    }
+
+    func resendLoginOTPDidSuccess() {
+        print("resent otp")
+    }
+
+    func resendRegistrationOTPDidSuccess() {
+        print("resent otp")
+    }
+
+    func showError(error: ApiError) {
+        verifyRouter?.showAlert(with: error.message ?? "Process failed", hostVC: self)
     }
 }

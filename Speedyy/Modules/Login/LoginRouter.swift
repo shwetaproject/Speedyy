@@ -19,7 +19,8 @@ class LoginRouter: LoginRouterProtocol {
 
     func navigateToOTPVerification(phoneNumber: String, hostVC: UIViewController) {
         DispatchQueue.main.async {
-            let verifyOtpVC = VerifyOTPViewController(phoneNumber: phoneNumber)
+            let verifyVC = VerifyOTPRouter()
+            let verifyOtpVC = verifyVC.getVerifyVCForLogin(phoneNumber: phoneNumber)
             verifyOtpVC.modalPresentationStyle = .overFullScreen
             hostVC.present(verifyOtpVC, animated: true)
         }

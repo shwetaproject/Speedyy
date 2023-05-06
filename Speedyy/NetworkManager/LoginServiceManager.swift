@@ -8,8 +8,8 @@
 import Foundation
 
 protocol LoginServiceManagerProtocol {
-    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, Error>) -> Void)
-    func verifyLoginOtp(otp: VerifyOTP, completion: @escaping (Result<LoginOTPResult, Error>) -> Void)
+    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, ApiError>) -> Void)
+    func verifyLoginOtp(otp: VerifyOTP, completion: @escaping (Result<LoginOTPResult, ApiError>) -> Void)
 }
 
 class LoginServiceManager: LoginServiceManagerProtocol {
@@ -20,7 +20,7 @@ class LoginServiceManager: LoginServiceManagerProtocol {
         self.service = service
     }
 
-    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, Error>) -> Void) {
+    func loginUser(phoneNumber: LoginPhoneNumber, completion: @escaping (Result<Void, ApiError>) -> Void) {
         let urlStr = "https://api.dev.speedyy.com/user/customer/auth/login/otp"
         guard let url = URL(string: urlStr) else { return }
 
@@ -35,11 +35,12 @@ class LoginServiceManager: LoginServiceManagerProtocol {
                 }
             }
         } catch let error {
-            completion(.failure(error))
+            let apiError = ApiError(code: 0, message: error.localizedDescription)
+            completion(.failure(apiError))
         }
     }
 
-    func verifyLoginOtp(otp: VerifyOTP, completion: @escaping (Result<LoginOTPResult, Error>) -> Void) {
+    func verifyLoginOtp(otp: VerifyOTP, completion: @escaping (Result<LoginOTPResult, ApiError>) -> Void) {
         let urlStr = "https://api.dev.speedyy.com/user/customer/auth/login/verify"
         guard let url = URL(string: urlStr) else { return }
 
@@ -56,7 +57,8 @@ class LoginServiceManager: LoginServiceManagerProtocol {
                 }
             }
         } catch let error {
-            completion(.failure(error))
+            let apiError = ApiError(code: 0, message: error.localizedDescription)
+            completion(.failure(apiError))
         }
     }
 }

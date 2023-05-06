@@ -11,22 +11,29 @@ import Foundation
 struct EmptyData: Codable {
 }
 
-enum ApiError {
-    case PhoneAlreadyExist
+struct APIResponse: Decodable {
+    let errors: [ApiError]?
+    let status: Bool?
+    let statusCode: Int?
+}
+
+struct ApiError: Codable, Error {
+    let code: Int?
+    let message: String?
 }
 
 protocol ServiceManagerProtocol {
     func postApiData<T: Decodable>(requestUrl: URL,
                                    requestBody: Data?,
                                    resultType: T.Type,
-                                   completion: @escaping (Result<T?, Error>) -> Void)
+                                   completion: @escaping (Result<T?, ApiError>) -> Void)
 }
 
 final class ServiceManager: ServiceManagerProtocol {
     func postApiData<T: Decodable>(requestUrl: URL,
                                    requestBody: Data?,
                                    resultType: T.Type,
-                                   completion: @escaping (Result<T?, Error>) -> Void) {
+                                   completion: @escaping (Result<T?, ApiError>) -> Void) {
         var urlRequest = URLRequest(url: requestUrl)
         urlRequest.httpMethod = "post"
 
@@ -36,16 +43,25 @@ final class ServiceManager: ServiceManagerProtocol {
         }
 
         URLSession.shared.dataTask(with: urlRequest) { data, response, error in
-            print(response)
             guard let data, error == nil else {
-                completion(.failure(error!))
+                if let error {
+                    let apiError = ApiError(code: 0, message: error.localizedDescription)
+                    completion(.failure(apiError))
+                }
                 return
             }
             do {
-                let result = try JSONDecoder().decode(T.self, from: data)
-                completion(.success(result))
+                let result1 = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
+                let apiresponse = try JSONDecoder().decode(APIResponse.self, from: data)
+                if apiresponse.status ?? true {
+                    let result = try JSONDecoder().decode(T.self, from: data)
+                    completion(.success(result))
+                } else if let apiError = apiresponse.errors?.first {
+                    completion(.failure(apiError))
+                }
             } catch let error {
-                completion(.failure(error))
+                let apiError = ApiError(code: 0, message: error.localizedDescription)
+                completion(.failure(apiError))
             }
         }.resume()
     }

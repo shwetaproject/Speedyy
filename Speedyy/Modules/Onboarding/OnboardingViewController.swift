@@ -180,7 +180,8 @@ extension OnboardingViewController {
     }
 
     @objc private func didTapRegisterBtn() {
-        let registerVC = RegisterViewController()
+        let registerRouter = RegistrationRouter()
+        let registerVC = registerRouter.getRegistrationViewController()
         registerVC.modalPresentationStyle = .overFullScreen
         present(registerVC, animated: true)
     }

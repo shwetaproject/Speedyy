@@ -8,7 +8,15 @@
 import UIKit
 import PhotosUI
 
+protocol ProfileViewProtocol: AnyObject {
+    func profileUpdateDidSuccess(userInfo: UpdateUserInfo, userId: String)
+    func showError(error: ApiError)
+}
+
 class ProfileViewController: UIViewController {
+
+    var profilePresenter: ProfilePresenterProtocol?
+    var profileRouter: ProfileRouterProtocol?
 
     let emailBottomLine = CALayer()
     let fullNameBottomLine = CALayer()
@@ -16,8 +24,6 @@ class ProfileViewController: UIViewController {
     let countryCodeBottomLine = CALayer()
     let altTextFieldBottomLine = CALayer()
     let altCountryCodeBottomLine = CALayer()
-
-    private var profileServiceManagerDelegate: ProfileServiceManagerProtocol?
 
     var fullName: String?
     var email: String?
@@ -29,7 +35,7 @@ class ProfileViewController: UIViewController {
     var registrationOTPResult: RegistrationOTPResult?
 
     private let scrollView: UIScrollView = {
-       let scrollView = UIScrollView()
+        let scrollView = UIScrollView()
         scrollView.translatesAutoresizingMaskIntoConstraints = false
         scrollView.alwaysBounceVertical = true
         scrollView.keyboardDismissMode = .onDrag
@@ -39,7 +45,7 @@ class ProfileViewController: UIViewController {
     }()
 
     private let avatarPlaceholderImageView: UIImageView = {
-       let imageView = UIImageView()
+        let imageView = UIImageView()
         imageView.translatesAutoresizingMaskIntoConstraints = false
         imageView.clipsToBounds = true
         imageView.layer.masksToBounds = true
@@ -70,7 +76,7 @@ class ProfileViewController: UIViewController {
     }()
 
     private let fullNameTextField: UITextField = {
-       let textfield = UITextField()
+        let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.keyboardType = .default
         textfield.autocorrectionType = .no
@@ -91,7 +97,7 @@ class ProfileViewController: UIViewController {
     }()
 
     private let emailTextField: UITextField = {
-       let textfield = UITextField()
+        let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.keyboardType = .default
         textfield.autocorrectionType = .no
@@ -126,7 +132,7 @@ class ProfileViewController: UIViewController {
     }()
 
     private let phoneNumberTextField: UITextField = {
-       let textfield = UITextField()
+        let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.keyboardType = .numberPad
         textfield.autocorrectionType = .no
@@ -161,7 +167,7 @@ class ProfileViewController: UIViewController {
     }()
 
     private let altPhoneNumberTextField: UITextField = {
-       let textfield = UITextField()
+        let textfield = UITextField()
         textfield.translatesAutoresizingMaskIntoConstraints = false
         textfield.keyboardType = .numberPad
         textfield.autocorrectionType = .no
@@ -221,14 +227,25 @@ class ProfileViewController: UIViewController {
         fullNameTextField.addTarget(self, action: #selector(didFullNameUpdated), for: .editingChanged)
         emailTextField.addTarget(self, action: #selector(didEmailUpdated), for: .editingChanged)
 
-        fullNameTextField.text = loginResult?.full_name
-        emailTextField.text = loginResult?.email
-        phoneNumberTextField.text = loginResult?.phone
+        setupViewData()
+    }
 
-        fullName = loginResult?.full_name
-        email = loginResult?.email
+    private func setupViewData() {
+        if let loginResult {
+            fullNameTextField.text = loginResult.full_name
+            emailTextField.text = loginResult.email
+            phoneNumberTextField.text = loginResult.phone
 
+            fullName = loginResult.full_name
+            email = loginResult.email
+        } else if let registrationOTPResult {
+            fullNameTextField.text = registrationOTPResult.full_name
+            emailTextField.text = registrationOTPResult.email
+            phoneNumberTextField.text = registrationOTPResult.phone
 
+            fullName = registrationOTPResult.full_name
+            email = registrationOTPResult.email
+        }
     }
 
     override func viewDidLayoutSubviews() {
@@ -391,15 +408,15 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
                 }
             }
             item.itemProvider.loadFileRepresentation(forTypeIdentifier: "public.item") { (url, error) in
-                            if error != nil {
-                               print("error \(error!)");
-                            } else {
-                                if let url = url {
-                                    let filename = url.lastPathComponent;
-                                    self.imageName = filename
-                                }
-                            }
-                        }
+                if error != nil {
+                    print("error \(error!)");
+                } else {
+                    if let url = url {
+                        let filename = url.lastPathComponent;
+                        self.imageName = filename
+                    }
+                }
+            }
         }
     }
 
@@ -424,7 +441,7 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
             altPhoneNumberLabel.textColor = .black
         }
 
-        guard let text = altPhoneNumberTextField.text, text.count == 10, NSCharacterSet(charactersIn: "0123456789").isSuperset(of: NSCharacterSet(charactersIn: text) as CharacterSet) else {
+        guard let text = altPhoneNumberTextField.text, profilePresenter?.isValidPhoneNumber(for: text) ?? false else {
             continueButton.isEnabled = false
             return
         }
@@ -451,7 +468,7 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
             phoneNumberLabel.textColor = .black
         }
 
-        guard let text = phoneNumberTextField.text, text.count == 10, NSCharacterSet(charactersIn: "0123456789").isSuperset(of: NSCharacterSet(charactersIn: text) as CharacterSet) else {
+        guard let text = phoneNumberTextField.text, profilePresenter?.isValidPhoneNumber(for: text) ?? false else {
             continueButton.isEnabled = false
             return
         }
@@ -494,13 +511,16 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
         guard let fullName, let email, let altPhone, let imageName, let loginResult else { return }
         let phoneNumber = "+91" + altPhone
         let userInfo = UpdateUserInfo(full_name: fullName, alternate_phone: phoneNumber, email: email, image_name: imageName)
-        profileServiceManagerDelegate?.updateUserInfo(userInfo: userInfo, userId: loginResult.id ?? "") { result in
-            switch result {
-            case .success():
-                print("success")
-            case .failure(let error):
-                print(error)
-            }
-        }
+        profilePresenter?.updateUserInfo(userInfo: userInfo, userId: loginResult.id ?? "")
+    }
+}
+
+extension ProfileViewController: ProfileViewProtocol {
+    func profileUpdateDidSuccess(userInfo: UpdateUserInfo, userId: String) {
+        print("Success")
+    }
+
+    func showError(error: ApiError) {
+        profileRouter?.showAlert(with: error.message ?? "Process failed", hostVC: self)
     }
 }

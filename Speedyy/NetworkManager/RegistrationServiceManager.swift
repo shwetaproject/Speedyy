@@ -8,8 +8,8 @@
 import Foundation
 
 protocol RegistrationServiceManagerProtocol {
-    func registerUser(userInfo: RegisterNewUser, completion: @escaping (Result<Void, Error>) -> Void)
-    func verifyRegistrationOtp(otp: VerifyOTP, completion: @escaping (Result<RegistrationOTPResult, Error>) -> Void)
+    func registerUser(userInfo: RegisterNewUser, completion: @escaping (Result<Void, ApiError>) -> Void)
+    func verifyRegistrationOtp(otp: VerifyOTP, completion: @escaping (Result<RegistrationOTPResult, ApiError>) -> Void)
 }
 
 class RegistrationServiceManager: RegistrationServiceManagerProtocol {
@@ -21,7 +21,7 @@ class RegistrationServiceManager: RegistrationServiceManagerProtocol {
     }
 
 
-    func registerUser(userInfo: RegisterNewUser, completion: @escaping (Result<Void, Error>) -> Void) {
+    func registerUser(userInfo: RegisterNewUser, completion: @escaping (Result<Void, ApiError>) -> Void) {
         let urlStr = "https://api.dev.speedyy.com/user/customer/auth/register/otp"
         guard let url = URL(string: urlStr) else { return }
 
@@ -36,11 +36,12 @@ class RegistrationServiceManager: RegistrationServiceManagerProtocol {
                 }
             }
         } catch let error {
-            completion(.failure(error))
+            let apiError = ApiError(code: 0, message: error.localizedDescription)
+            completion(.failure(apiError))
         }
     }
 
-    func verifyRegistrationOtp(otp: VerifyOTP, completion: @escaping (Result<RegistrationOTPResult, Error>) -> Void) {
+    func verifyRegistrationOtp(otp: VerifyOTP, completion: @escaping (Result<RegistrationOTPResult, ApiError>) -> Void) {
         let urlStr = "https://api.dev.speedyy.com/user/customer/auth/register/verify"
         guard let url = URL(string: urlStr) else { return }
 
@@ -57,7 +58,8 @@ class RegistrationServiceManager: RegistrationServiceManagerProtocol {
                 }
             }
         } catch let error {
-            completion(.failure(error))
+            let apiError = ApiError(code: 0, message: error.localizedDescription)
+            completion(.failure(apiError))
         }
     }
 }

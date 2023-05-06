@@ -7,6 +7,11 @@
 
 import UIKit
 
+protocol RegistrationViewProtocol: AnyObject {
+    func registrationDidSuccess(userInfo: RegisterNewUser)
+    func showError(error: ApiError)
+}
+
 class RegisterViewController: UIViewController {
 
     let emailBottomLine = CALayer()
@@ -18,7 +23,8 @@ class RegisterViewController: UIViewController {
     var email: String?
     var phone: String?
 
-    private var registrationServiceManagerDelegate: RegistrationServiceManagerProtocol?
+    var registerPresenter: RegistrationPresenterProtocol?
+    var registerRouter: RegistrationRouterProtocol?
 
     let backButton: UIButton = {
         let button = UIButton()
@@ -276,7 +282,7 @@ class RegisterViewController: UIViewController {
             phoneNumberLabel.textColor = .black
         }
 
-        guard let text = phoneNumberTextField.text, text.count == 10, NSCharacterSet(charactersIn: "0123456789").isSuperset(of: NSCharacterSet(charactersIn: text) as CharacterSet) else {
+        guard let text = phoneNumberTextField.text, registerPresenter?.isValidPhoneNumber(for: text) ?? false else {
             continueButton.isEnabled = false
             return
         }
@@ -319,19 +325,19 @@ class RegisterViewController: UIViewController {
         guard let fullName, let email, let phone else { return }
         let phoneNumber = "+91" + phone
         let userInfo = RegisterNewUser(full_name: fullName, phone: phoneNumber, email: email)
-        registrationServiceManagerDelegate?.registerUser(userInfo: userInfo) { [weak self] result in
-            switch result {
-            case .success():
-                DispatchQueue.main.async {
-                    let verifyOtpVC = VerifyOTPViewController(userInfo: userInfo)
-                    verifyOtpVC.modalPresentationStyle = .overFullScreen
-                    self?.present(verifyOtpVC, animated: true)
-                }
-            case .failure(let error):
-                print(error)
-            }
-        }
 
-
+        registerPresenter?.registerUser(userInfo: userInfo)
     }
+}
+
+extension RegisterViewController: RegistrationViewProtocol {
+    func registrationDidSuccess(userInfo: RegisterNewUser) {
+        registerRouter?.navigateToOTPVerification(userInfo: userInfo, hostVC: self)
+    }
+
+    func showError(error: ApiError) {
+        registerRouter?.showAlert(with: error.message ?? "Process failed", hostVC: self)
+    }
+
+
 }

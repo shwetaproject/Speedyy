@@ -8,10 +8,10 @@
 import Foundation
 
 protocol ProfileServiceManagerProtocol {
-    func updateUserInfo(userInfo: UpdateUserInfo, userId: String, completion: @escaping (Result<Void, Error>) -> Void)
+    func updateUserInfo(userInfo: UpdateUserInfo, userId: String, completion: @escaping (Result<Void, ApiError>) -> Void)
 }
 
-class ProfileServiceManager {
+class ProfileServiceManager: ProfileServiceManagerProtocol {
 
     private let service: ServiceManagerProtocol
 
@@ -19,7 +19,7 @@ class ProfileServiceManager {
         self.service = service
     }
 
-    func updateUserInfo(userInfo: UpdateUserInfo, userId: String, completion: @escaping (Result<Void, Error>) -> Void) {
+    func updateUserInfo(userInfo: UpdateUserInfo, userId: String, completion: @escaping (Result<Void, ApiError>) -> Void) {
         let urlStr = "https://api.dev.speedyy.com/user/customer/\(userId)"
         guard let url = URL(string: urlStr) else { return }
 
@@ -34,7 +34,8 @@ class ProfileServiceManager {
                 }
             }
         } catch let error {
-            completion(.failure(error))
+            let apiError = ApiError(code: 0, message: error.localizedDescription)
+            completion(.failure(apiError))
         }
     }
 }
