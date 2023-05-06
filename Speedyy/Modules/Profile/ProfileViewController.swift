@@ -17,7 +17,7 @@ class ProfileViewController: UIViewController {
     let altTextFieldBottomLine = CALayer()
     let altCountryCodeBottomLine = CALayer()
 
-    let apiCaller = ApiCaller()
+    private var profileServiceManagerDelegate: ProfileServiceManagerProtocol?
 
     var fullName: String?
     var email: String?
@@ -494,7 +494,7 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
         guard let fullName, let email, let altPhone, let imageName, let loginResult else { return }
         let phoneNumber = "+91" + altPhone
         let userInfo = UpdateUserInfo(full_name: fullName, alternate_phone: phoneNumber, email: email, image_name: imageName)
-        apiCaller.updateUserInfo(userInfo: userInfo, userId: loginResult.id ?? "") { result in
+        profileServiceManagerDelegate?.updateUserInfo(userInfo: userInfo, userId: loginResult.id ?? "") { result in
             switch result {
             case .success():
                 print("success")

@@ -18,7 +18,7 @@ class RegisterViewController: UIViewController {
     var email: String?
     var phone: String?
 
-    let apiCaller = ApiCaller()
+    private var registrationServiceManagerDelegate: RegistrationServiceManagerProtocol?
 
     let backButton: UIButton = {
         let button = UIButton()
@@ -319,7 +319,7 @@ class RegisterViewController: UIViewController {
         guard let fullName, let email, let phone else { return }
         let phoneNumber = "+91" + phone
         let userInfo = RegisterNewUser(full_name: fullName, phone: phoneNumber, email: email)
-        apiCaller.registerUser(userInfo: userInfo) { [weak self] result in
+        registrationServiceManagerDelegate?.registerUser(userInfo: userInfo) { [weak self] result in
             switch result {
             case .success():
                 DispatchQueue.main.async {

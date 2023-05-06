@@ -12,7 +12,8 @@ class VerifyOTPViewController: UIViewController {
     private var otpString = ""
     private var phoneNumber: String?
     private var subTitleLabelText = "Enter the code we just sent to\n"
-    private let apiCaller = ApiCaller()
+    private var loginServiceManagerDelegate: LoginServiceManagerProtocol?
+    private var registrationServiceManagerDelegate: RegistrationServiceManagerProtocol?
 
     private var userInfo: RegisterNewUser?
 
@@ -305,7 +306,7 @@ class VerifyOTPViewController: UIViewController {
     @objc private func didTapResendOtp() {
         if let userInfo {
             startEvent()
-            apiCaller.registerUser(userInfo: userInfo) { result in
+            registrationServiceManagerDelegate?.registerUser(userInfo: userInfo) { result in
                 switch result {
                 case .success():
                     print("resent otp")
@@ -316,7 +317,7 @@ class VerifyOTPViewController: UIViewController {
         } else if let phoneNumber {
             startEvent()
             let loginPhNo = LoginPhoneNumber(phone: phoneNumber)
-            apiCaller.loginUser(phoneNumber: loginPhNo) { result in
+            loginServiceManagerDelegate?.loginUser(phoneNumber: loginPhNo) { result in
                 switch result {
                 case .success():
                     print("resent otp")
@@ -332,7 +333,7 @@ class VerifyOTPViewController: UIViewController {
             verifyLoginOtp()
             return }
         let otp = VerifyOTP(phone: userInfo.phone, otp: otpString)
-        apiCaller.verifyRegistrationOtp(otp: otp) { [weak self] result in
+        registrationServiceManagerDelegate?.verifyRegistrationOtp(otp: otp) { [weak self] result in
             switch result {
             case .success(let result):
                 DispatchQueue.main.async {
@@ -349,7 +350,7 @@ class VerifyOTPViewController: UIViewController {
     private func verifyLoginOtp() {
         guard let phoneNumber else { return }
         let otp = VerifyOTP(phone: phoneNumber, otp: otpString)
-        apiCaller.verifyLoginOtp(otp: otp) { [weak self] result in
+        loginServiceManagerDelegate?.verifyLoginOtp(otp: otp) { [weak self] result in
             switch result {
             case .success(let result):
                 DispatchQueue.main.async {

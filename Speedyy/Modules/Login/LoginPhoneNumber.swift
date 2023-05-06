@@ -11,6 +11,3 @@ struct LoginPhoneNumber: Codable {
     let phone: String
 }
 
-struct EmptyData: Codable {
-
-}

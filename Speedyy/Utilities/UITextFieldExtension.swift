@@ -15,8 +15,6 @@ extension UITextField {
         self.textContentType = .oneTimeCode
         self.autocapitalizationType = .none
 
-
-        
         let centeredParagraphStyle = NSMutableParagraphStyle()
         centeredParagraphStyle.alignment = .center
         self.attributedPlaceholder = NSAttributedString(

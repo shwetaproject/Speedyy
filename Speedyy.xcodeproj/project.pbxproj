@@ -7,10 +7,26 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		124FF4B72A057BA70071399E /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4B62A057BA70071399E /* LoginServiceManager.swift */; };
+		124FF4B92A057BBA0071399E /* RegistrationServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4B82A057BBA0071399E /* RegistrationServiceManager.swift */; };
+		124FF4BB2A057BCA0071399E /* ProfileServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4BA2A057BCA0071399E /* ProfileServiceManager.swift */; };
+		124FF4C22A0585290071399E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4C12A0585290071399E /* LoginViewController.swift */; };
+		124FF4C52A0585690071399E /* LoginPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4C42A0585690071399E /* LoginPresenter.swift */; };
+		124FF4C72A05857C0071399E /* LoginRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4C62A05857C0071399E /* LoginRouter.swift */; };
+		124FF4C92A0585910071399E /* LoginInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4C82A0585910071399E /* LoginInteractor.swift */; };
+		1260C3502A05917500FAA8B4 /* RegistrationPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C34F2A05917500FAA8B4 /* RegistrationPresenter.swift */; };
+		1260C3522A05918600FAA8B4 /* RegistrationRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C3512A05918600FAA8B4 /* RegistrationRouter.swift */; };
+		1260C3542A05919A00FAA8B4 /* RegistrationInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C3532A05919A00FAA8B4 /* RegistrationInteractor.swift */; };
+		1260C3562A0591BA00FAA8B4 /* ProfilePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C3552A0591BA00FAA8B4 /* ProfilePresenter.swift */; };
+		1260C3582A0591C700FAA8B4 /* ProfileRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C3572A0591C700FAA8B4 /* ProfileRouter.swift */; };
+		1260C35A2A0591D600FAA8B4 /* ProfileInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C3592A0591D600FAA8B4 /* ProfileInteractor.swift */; };
+		1260C35C2A0591F100FAA8B4 /* VerifyOTPPresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C35B2A0591F100FAA8B4 /* VerifyOTPPresenter.swift */; };
+		1260C35E2A0591FE00FAA8B4 /* VerifyOTPRouter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C35D2A0591FE00FAA8B4 /* VerifyOTPRouter.swift */; };
+		1260C3602A05920A00FAA8B4 /* VerifyOTPInteractor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1260C35F2A05920A00FAA8B4 /* VerifyOTPInteractor.swift */; };
 		12644DD72A04CD4400488663 /* RegisterNewUser.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DD62A04CD4400488663 /* RegisterNewUser.swift */; };
 		12644DD92A04CDDF00488663 /* VerifyOTP.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DD82A04CDDF00488663 /* VerifyOTP.swift */; };
 		12644DDB2A04CE3600488663 /* LoginPhoneNumber.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */; };
-		12644DDD2A04CEDC00488663 /* ApiCaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDC2A04CEDC00488663 /* ApiCaller.swift */; };
+		12644DDD2A04CEDC00488663 /* ServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDC2A04CEDC00488663 /* ServiceManager.swift */; };
 		12644DDF2A04EF1000488663 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DDE2A04EF1000488663 /* HomeViewController.swift */; };
 		12644DE12A04F0EE00488663 /* RegistrationOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */; };
 		12644DE32A04FF7900488663 /* LoginOTPResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = 12644DE22A04FF7900488663 /* LoginOTPResponse.swift */; };
@@ -23,17 +39,33 @@
 		127852082A03790900929F2E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 127852072A03790900929F2E /* Assets.xcassets */; };
 		1278520B2A03790900929F2E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 127852092A03790900929F2E /* LaunchScreen.storyboard */; };
 		127852132A03979000929F2E /* OnboardingCollectionViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852122A03979000929F2E /* OnboardingCollectionViewCell.swift */; };
-		127852152A03AEAC00929F2E /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852142A03AEAC00929F2E /* LoginViewController.swift */; };
 		127852172A03AEBB00929F2E /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 127852162A03AEBB00929F2E /* RegisterViewController.swift */; };
 		1278521B2A03C59A00929F2E /* ViewControllerExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */; };
 		1278521D2A03D38200929F2E /* VerifyOTPViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */; };
+		1280522C2A06184E004F2ECD /* UpdateProfile.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1280522B2A06184E004F2ECD /* UpdateProfile.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		124FF4B62A057BA70071399E /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
+		124FF4B82A057BBA0071399E /* RegistrationServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationServiceManager.swift; sourceTree = "<group>"; };
+		124FF4BA2A057BCA0071399E /* ProfileServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceManager.swift; sourceTree = "<group>"; };
+		124FF4C12A0585290071399E /* LoginViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		124FF4C42A0585690071399E /* LoginPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPresenter.swift; sourceTree = "<group>"; };
+		124FF4C62A05857C0071399E /* LoginRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginRouter.swift; sourceTree = "<group>"; };
+		124FF4C82A0585910071399E /* LoginInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginInteractor.swift; sourceTree = "<group>"; };
+		1260C34F2A05917500FAA8B4 /* RegistrationPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationPresenter.swift; sourceTree = "<group>"; };
+		1260C3512A05918600FAA8B4 /* RegistrationRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationRouter.swift; sourceTree = "<group>"; };
+		1260C3532A05919A00FAA8B4 /* RegistrationInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationInteractor.swift; sourceTree = "<group>"; };
+		1260C3552A0591BA00FAA8B4 /* ProfilePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfilePresenter.swift; sourceTree = "<group>"; };
+		1260C3572A0591C700FAA8B4 /* ProfileRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileRouter.swift; sourceTree = "<group>"; };
+		1260C3592A0591D600FAA8B4 /* ProfileInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileInteractor.swift; sourceTree = "<group>"; };
+		1260C35B2A0591F100FAA8B4 /* VerifyOTPPresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPPresenter.swift; sourceTree = "<group>"; };
+		1260C35D2A0591FE00FAA8B4 /* VerifyOTPRouter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPRouter.swift; sourceTree = "<group>"; };
+		1260C35F2A05920A00FAA8B4 /* VerifyOTPInteractor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPInteractor.swift; sourceTree = "<group>"; };
 		12644DD62A04CD4400488663 /* RegisterNewUser.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterNewUser.swift; sourceTree = "<group>"; };
 		12644DD82A04CDDF00488663 /* VerifyOTP.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTP.swift; sourceTree = "<group>"; };
 		12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginPhoneNumber.swift; sourceTree = "<group>"; };
-		12644DDC2A04CEDC00488663 /* ApiCaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiCaller.swift; sourceTree = "<group>"; };
+		12644DDC2A04CEDC00488663 /* ServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ServiceManager.swift; sourceTree = "<group>"; };
 		12644DDE2A04EF1000488663 /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationOTPResponse.swift; sourceTree = "<group>"; };
 		12644DE22A04FF7900488663 /* LoginOTPResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginOTPResponse.swift; sourceTree = "<group>"; };
@@ -48,10 +80,10 @@
 		1278520A2A03790900929F2E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		1278520C2A03790900929F2E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		127852122A03979000929F2E /* OnboardingCollectionViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OnboardingCollectionViewCell.swift; sourceTree = "<group>"; };
-		127852142A03AEAC00929F2E /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
 		127852162A03AEBB00929F2E /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
 		1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewControllerExtension.swift; sourceTree = "<group>"; };
 		1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOTPViewController.swift; sourceTree = "<group>"; };
+		1280522B2A06184E004F2ECD /* UpdateProfile.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UpdateProfile.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -65,22 +97,76 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		12644DD42A04CD2100488663 /* Models */ = {
+		124FF4BC2A0584BA0071399E /* Modules */ = {
 			isa = PBXGroup;
 			children = (
-				12644DD62A04CD4400488663 /* RegisterNewUser.swift */,
-				12644DD82A04CDDF00488663 /* VerifyOTP.swift */,
-				12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */,
-				12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */,
-				12644DE22A04FF7900488663 /* LoginOTPResponse.swift */,
+				128052302A063C73004F2ECD /* Home */,
+				1280522F2A063C51004F2ECD /* Onboarding */,
+				124FF4BD2A0584BA0071399E /* Registration */,
+				124FF4BE2A0584BA0071399E /* Profile */,
+				124FF4BF2A0584BA0071399E /* OTPVerification */,
+				124FF4C02A0584BA0071399E /* Login */,
 			);
-			path = Models;
+			path = Modules;
+			sourceTree = "<group>";
+		};
+		124FF4BD2A0584BA0071399E /* Registration */ = {
+			isa = PBXGroup;
+			children = (
+				127852162A03AEBB00929F2E /* RegisterViewController.swift */,
+				1260C3532A05919A00FAA8B4 /* RegistrationInteractor.swift */,
+				1260C34F2A05917500FAA8B4 /* RegistrationPresenter.swift */,
+				12644DD62A04CD4400488663 /* RegisterNewUser.swift */,
+				12644DE02A04F0EE00488663 /* RegistrationOTPResponse.swift */,
+				1260C3512A05918600FAA8B4 /* RegistrationRouter.swift */,
+			);
+			path = Registration;
+			sourceTree = "<group>";
+		};
+		124FF4BE2A0584BA0071399E /* Profile */ = {
+			isa = PBXGroup;
+			children = (
+				12644DE62A050F3600488663 /* ProfileViewController.swift */,
+				1260C3592A0591D600FAA8B4 /* ProfileInteractor.swift */,
+				1260C3552A0591BA00FAA8B4 /* ProfilePresenter.swift */,
+				1280522B2A06184E004F2ECD /* UpdateProfile.swift */,
+				1260C3572A0591C700FAA8B4 /* ProfileRouter.swift */,
+			);
+			path = Profile;
+			sourceTree = "<group>";
+		};
+		124FF4BF2A0584BA0071399E /* OTPVerification */ = {
+			isa = PBXGroup;
+			children = (
+				1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */,
+				1260C35F2A05920A00FAA8B4 /* VerifyOTPInteractor.swift */,
+				1260C35B2A0591F100FAA8B4 /* VerifyOTPPresenter.swift */,
+				12644DD82A04CDDF00488663 /* VerifyOTP.swift */,
+				1260C35D2A0591FE00FAA8B4 /* VerifyOTPRouter.swift */,
+			);
+			path = OTPVerification;
+			sourceTree = "<group>";
+		};
+		124FF4C02A0584BA0071399E /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				124FF4C12A0585290071399E /* LoginViewController.swift */,
+				124FF4C82A0585910071399E /* LoginInteractor.swift */,
+				124FF4C42A0585690071399E /* LoginPresenter.swift */,
+				12644DE22A04FF7900488663 /* LoginOTPResponse.swift */,
+				12644DDA2A04CE3600488663 /* LoginPhoneNumber.swift */,
+				124FF4C62A05857C0071399E /* LoginRouter.swift */,
+			);
+			path = Login;
 			sourceTree = "<group>";
 		};
 		12644DD52A04CD2A00488663 /* NetworkManager */ = {
 			isa = PBXGroup;
 			children = (
-				12644DDC2A04CEDC00488663 /* ApiCaller.swift */,
+				12644DDC2A04CEDC00488663 /* ServiceManager.swift */,
+				124FF4B62A057BA70071399E /* LoginServiceManager.swift */,
+				124FF4B82A057BBA0071399E /* RegistrationServiceManager.swift */,
+				124FF4BA2A057BCA0071399E /* ProfileServiceManager.swift */,
 			);
 			path = NetworkManager;
 			sourceTree = "<group>";
@@ -104,41 +190,51 @@
 		127851FD2A03790800929F2E /* Speedyy */ = {
 			isa = PBXGroup;
 			children = (
+				1280522E2A063C28004F2ECD /* Components */,
+				1280522D2A063BB6004F2ECD /* Utilities */,
+				124FF4BC2A0584BA0071399E /* Modules */,
 				12644DD52A04CD2A00488663 /* NetworkManager */,
-				12644DD42A04CD2100488663 /* Models */,
-				127852192A03B8D800929F2E /* Views */,
-				127852182A03B8BD00929F2E /* ViewControllers */,
 				127851FE2A03790800929F2E /* AppDelegate.swift */,
 				127852002A03790800929F2E /* SceneDelegate.swift */,
 				127852072A03790900929F2E /* Assets.xcassets */,
 				127852092A03790900929F2E /* LaunchScreen.storyboard */,
 				1278520C2A03790900929F2E /* Info.plist */,
-				126CE4782A03F7CE005A5FA3 /* UITextFieldExtension.swift */,
 			);
 			path = Speedyy;
 			sourceTree = "<group>";
 		};
-		127852182A03B8BD00929F2E /* ViewControllers */ = {
+		1280522D2A063BB6004F2ECD /* Utilities */ = {
 			isa = PBXGroup;
 			children = (
-				127852022A03790800929F2E /* OnboardingViewController.swift */,
 				1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */,
-				127852142A03AEAC00929F2E /* LoginViewController.swift */,
-				127852162A03AEBB00929F2E /* RegisterViewController.swift */,
-				1278521C2A03D38200929F2E /* VerifyOTPViewController.swift */,
-				12644DDE2A04EF1000488663 /* HomeViewController.swift */,
-				12644DE42A050E7500488663 /* MainTabBarViewController.swift */,
-				12644DE62A050F3600488663 /* ProfileViewController.swift */,
+				126CE4782A03F7CE005A5FA3 /* UITextFieldExtension.swift */,
 			);
-			path = ViewControllers;
+			path = Utilities;
 			sourceTree = "<group>";
 		};
-		127852192A03B8D800929F2E /* Views */ = {
+		1280522E2A063C28004F2ECD /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				12644DE42A050E7500488663 /* MainTabBarViewController.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		1280522F2A063C51004F2ECD /* Onboarding */ = {
 			isa = PBXGroup;
 			children = (
 				127852122A03979000929F2E /* OnboardingCollectionViewCell.swift */,
+				127852022A03790800929F2E /* OnboardingViewController.swift */,
 			);
-			path = Views;
+			path = Onboarding;
+			sourceTree = "<group>";
+		};
+		128052302A063C73004F2ECD /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				12644DDE2A04EF1000488663 /* HomeViewController.swift */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -212,23 +308,39 @@
 			buildActionMask = 2147483647;
 			files = (
 				127852032A03790800929F2E /* OnboardingViewController.swift in Sources */,
-				12644DDD2A04CEDC00488663 /* ApiCaller.swift in Sources */,
+				12644DDD2A04CEDC00488663 /* ServiceManager.swift in Sources */,
 				12644DDB2A04CE3600488663 /* LoginPhoneNumber.swift in Sources */,
 				12644DE52A050E7600488663 /* MainTabBarViewController.swift in Sources */,
+				124FF4C52A0585690071399E /* LoginPresenter.swift in Sources */,
+				1260C3522A05918600FAA8B4 /* RegistrationRouter.swift in Sources */,
 				12644DD92A04CDDF00488663 /* VerifyOTP.swift in Sources */,
 				126CE4792A03F7CE005A5FA3 /* UITextFieldExtension.swift in Sources */,
 				12644DE72A050F3600488663 /* ProfileViewController.swift in Sources */,
 				12644DDF2A04EF1000488663 /* HomeViewController.swift in Sources */,
+				1260C3562A0591BA00FAA8B4 /* ProfilePresenter.swift in Sources */,
+				124FF4C72A05857C0071399E /* LoginRouter.swift in Sources */,
 				127851FF2A03790800929F2E /* AppDelegate.swift in Sources */,
+				1260C3542A05919A00FAA8B4 /* RegistrationInteractor.swift in Sources */,
 				1278521B2A03C59A00929F2E /* ViewControllerExtension.swift in Sources */,
+				124FF4C22A0585290071399E /* LoginViewController.swift in Sources */,
 				127852012A03790800929F2E /* SceneDelegate.swift in Sources */,
 				127852172A03AEBB00929F2E /* RegisterViewController.swift in Sources */,
+				124FF4B92A057BBA0071399E /* RegistrationServiceManager.swift in Sources */,
 				12644DD72A04CD4400488663 /* RegisterNewUser.swift in Sources */,
 				12644DE12A04F0EE00488663 /* RegistrationOTPResponse.swift in Sources */,
 				12644DE32A04FF7900488663 /* LoginOTPResponse.swift in Sources */,
-				127852152A03AEAC00929F2E /* LoginViewController.swift in Sources */,
+				1260C35A2A0591D600FAA8B4 /* ProfileInteractor.swift in Sources */,
+				1260C3582A0591C700FAA8B4 /* ProfileRouter.swift in Sources */,
 				127852132A03979000929F2E /* OnboardingCollectionViewCell.swift in Sources */,
+				1260C35E2A0591FE00FAA8B4 /* VerifyOTPRouter.swift in Sources */,
+				124FF4C92A0585910071399E /* LoginInteractor.swift in Sources */,
+				1260C3502A05917500FAA8B4 /* RegistrationPresenter.swift in Sources */,
+				1280522C2A06184E004F2ECD /* UpdateProfile.swift in Sources */,
+				1260C3602A05920A00FAA8B4 /* VerifyOTPInteractor.swift in Sources */,
+				1260C35C2A0591F100FAA8B4 /* VerifyOTPPresenter.swift in Sources */,
+				124FF4BB2A057BCA0071399E /* ProfileServiceManager.swift in Sources */,
 				1278521D2A03D38200929F2E /* VerifyOTPViewController.swift in Sources */,
+				124FF4B72A057BA70071399E /* LoginServiceManager.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

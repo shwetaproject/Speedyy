@@ -172,7 +172,9 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension OnboardingViewController {
     @objc private func didTapLoginBtn() {
-        let loginVC = LoginViewController()
+
+        let loginRouter = LoginRouter()
+        let loginVC = loginRouter.getLoginViewController()
         loginVC.modalPresentationStyle = .overFullScreen
         present(loginVC, animated: true)
     }
