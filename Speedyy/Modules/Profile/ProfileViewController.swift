@@ -442,10 +442,8 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
         }
 
         guard let text = altPhoneNumberTextField.text, profilePresenter?.isValidPhoneNumber(for: text) ?? false else {
-            continueButton.isEnabled = false
             return
         }
-        continueButton.isEnabled = true
         altPhone = text
     }
 
@@ -469,10 +467,8 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
         }
 
         guard let text = phoneNumberTextField.text, profilePresenter?.isValidPhoneNumber(for: text) ?? false else {
-            continueButton.isEnabled = false
             return
         }
-        continueButton.isEnabled = true
         phone = text
     }
 

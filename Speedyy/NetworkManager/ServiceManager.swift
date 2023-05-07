@@ -51,7 +51,6 @@ final class ServiceManager: ServiceManagerProtocol {
                 return
             }
             do {
-                let result1 = try JSONSerialization.jsonObject(with: data, options: .fragmentsAllowed)
                 let apiresponse = try JSONDecoder().decode(APIResponse.self, from: data)
                 if apiresponse.status ?? true {
                     let result = try JSONDecoder().decode(T.self, from: data)

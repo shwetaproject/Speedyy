@@ -24,7 +24,4 @@ class LoginInteractor: LoginInteractorProtocol {
             }
         }
     }
-
-
-
 }
