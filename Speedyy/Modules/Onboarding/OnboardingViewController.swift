@@ -163,7 +163,8 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
-        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier, for: indexPath) as? OnboardingCollectionViewCell {
+        if let cell = collectionView.dequeueReusableCell(withReuseIdentifier: OnboardingCollectionViewCell.identifier,
+                                                         for: indexPath) as? OnboardingCollectionViewCell {
             return cell
         }
         return UICollectionViewCell()
@@ -172,7 +173,6 @@ extension OnboardingViewController: UICollectionViewDelegate, UICollectionViewDa
 
 extension OnboardingViewController {
     @objc private func didTapLoginBtn() {
-
         let loginRouter = LoginRouter()
         let loginVC = loginRouter.getLoginViewController()
         loginVC.modalPresentationStyle = .overFullScreen

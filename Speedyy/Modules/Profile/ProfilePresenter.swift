@@ -17,12 +17,12 @@ class ProfilePresenter: ProfilePresenterProtocol {
     var profileInteractor: ProfileInteractorProtocol?
 
     func updateUserInfo(userInfo: UpdateUserInfo, userId: String) {
-        profileInteractor?.updateUserInfo(userInfo: userInfo, userId: userId, completion: { result in
+        profileInteractor?.updateUserInfo(userInfo: userInfo, userId: userId, completion: { [weak self] result in
             switch result {
             case .success():
-                self.profileView?.profileUpdateDidSuccess(userInfo: userInfo, userId: userId)
+                self?.profileView?.profileUpdateDidSuccess(userInfo: userInfo, userId: userId)
             case .failure(let error):
-                self.profileView?.showError(error: error)
+                self?.profileView?.showError(error: error)
             }
         })
     }

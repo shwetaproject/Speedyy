@@ -180,13 +180,13 @@ class VerifyOTPViewController: UIViewController {
 
     }
 
-        private func setupOTPTextField() {
-            let textFieldArray = [textField1, textField2, textField3, textField4, textField5]
-            textFieldArray.forEach { textField in
-                otpStackView.addArrangedSubview(textField)
-                textField.addTarget(nil, action: #selector(textFieldDidChange), for: .editingChanged)
-            }
+    private func setupOTPTextField() {
+        let textFieldArray = [textField1, textField2, textField3, textField4, textField5]
+        textFieldArray.forEach { textField in
+            otpStackView.addArrangedSubview(textField)
+            textField.addTarget(nil, action: #selector(textFieldDidChange), for: .editingChanged)
         }
+    }
 
     @objc private func textFieldDidChange(textField: UITextField) {
         let text = textField.text

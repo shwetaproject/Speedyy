@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		122291492A0D07500058BBCF /* StringsExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 122291482A0D07500058BBCF /* StringsExtension.swift */; };
+		1222914B2A0D08300058BBCF /* PhoneNumberTest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 1222914A2A0D08300058BBCF /* PhoneNumberTest.swift */; };
 		124FF4B72A057BA70071399E /* LoginServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4B62A057BA70071399E /* LoginServiceManager.swift */; };
 		124FF4B92A057BBA0071399E /* RegistrationServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4B82A057BBA0071399E /* RegistrationServiceManager.swift */; };
 		124FF4BB2A057BCA0071399E /* ProfileServiceManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 124FF4BA2A057BCA0071399E /* ProfileServiceManager.swift */; };
@@ -61,6 +63,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		122291482A0D07500058BBCF /* StringsExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringsExtension.swift; sourceTree = "<group>"; };
+		1222914A2A0D08300058BBCF /* PhoneNumberTest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhoneNumberTest.swift; sourceTree = "<group>"; };
 		124FF4B62A057BA70071399E /* LoginServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginServiceManager.swift; sourceTree = "<group>"; };
 		124FF4B82A057BBA0071399E /* RegistrationServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationServiceManager.swift; sourceTree = "<group>"; };
 		124FF4BA2A057BCA0071399E /* ProfileServiceManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProfileServiceManager.swift; sourceTree = "<group>"; };
@@ -196,6 +200,7 @@
 				1260D1A02A0779F70045AA1B /* RegistrationTests.swift */,
 				1260D1A22A077A090045AA1B /* LoginVerifyOTPTests.swift */,
 				127A3D152A07911500A10739 /* RegistrationVerifyOTPTests.swift */,
+				1222914A2A0D08300058BBCF /* PhoneNumberTest.swift */,
 			);
 			path = SpeedyyTests;
 			sourceTree = "<group>";
@@ -250,6 +255,7 @@
 			children = (
 				1278521A2A03C59A00929F2E /* ViewControllerExtension.swift */,
 				126CE4782A03F7CE005A5FA3 /* UITextFieldExtension.swift */,
+				122291482A0D07500058BBCF /* StringsExtension.swift */,
 			);
 			path = Utilities;
 			sourceTree = "<group>";
@@ -380,6 +386,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				127A3D162A07911500A10739 /* RegistrationVerifyOTPTests.swift in Sources */,
+				1222914B2A0D08300058BBCF /* PhoneNumberTest.swift in Sources */,
 				1260D1A12A0779F70045AA1B /* RegistrationTests.swift in Sources */,
 				1260D1982A0777C30045AA1B /* SpeedyyTests.swift in Sources */,
 				1260D1A32A077A090045AA1B /* LoginVerifyOTPTests.swift in Sources */,
@@ -403,6 +410,7 @@
 				12644DDF2A04EF1000488663 /* HomeViewController.swift in Sources */,
 				1260C3562A0591BA00FAA8B4 /* ProfilePresenter.swift in Sources */,
 				124FF4C72A05857C0071399E /* LoginRouter.swift in Sources */,
+				122291492A0D07500058BBCF /* StringsExtension.swift in Sources */,
 				127851FF2A03790800929F2E /* AppDelegate.swift in Sources */,
 				1260C3542A05919A00FAA8B4 /* RegistrationInteractor.swift in Sources */,
 				1278521B2A03C59A00929F2E /* ViewControllerExtension.swift in Sources */,

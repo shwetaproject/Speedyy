@@ -17,4 +17,14 @@ extension UIViewController {
     @objc func dismissKeyboard() {
         view.endEditing(true)
     }
+
+    func showAlert(message: String) {
+        let alertVC = UIAlertController(title: "Error", message: message, preferredStyle: .alert)
+        let alertAction = UIAlertAction(title: "OK", style: .cancel)
+        alertVC.addAction(alertAction)
+
+        DispatchQueue.main.async { [weak self] in
+            self?.present(alertVC, animated: true)
+        }
+    }
 }

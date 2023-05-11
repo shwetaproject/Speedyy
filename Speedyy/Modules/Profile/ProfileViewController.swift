@@ -388,9 +388,6 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
         picker.dismiss(animated: true)
 
         for item in results {
-
-
-
             item.itemProvider.loadObject(ofClass: UIImage.self) { [weak self] object, error in
                 if let image = object as? UIImage {
                     DispatchQueue.main.async {
@@ -407,13 +404,13 @@ extension ProfileViewController: PHPickerViewControllerDelegate {
                     }
                 }
             }
-            item.itemProvider.loadFileRepresentation(forTypeIdentifier: "public.item") { (url, error) in
+            item.itemProvider.loadFileRepresentation(forTypeIdentifier: "public.item") { [weak self] (url, error) in
                 if error != nil {
                     print("error \(error!)");
                 } else {
                     if let url = url {
                         let filename = url.lastPathComponent;
-                        self.imageName = filename
+                        self?.imageName = filename
                     }
                 }
             }

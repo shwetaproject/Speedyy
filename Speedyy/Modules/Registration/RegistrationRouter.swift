@@ -46,13 +46,7 @@ class RegistrationRouter: RegistrationRouterProtocol {
     }
 
     func showAlert(with msg: String, hostVC: UIViewController) {
-        let alertVC = UIAlertController(title: "Error", message: msg, preferredStyle: .alert)
-        let alertAction = UIAlertAction(title: "OK", style: .cancel)
-        alertVC.addAction(alertAction)
-
-        DispatchQueue.main.async {
-            hostVC.present(alertVC, animated: true)
-        }
+        hostVC.showAlert(message: msg)
     }
 
 

@@ -18,11 +18,7 @@ class LoginPresenter: LoginPresenterProtocol {
     var loginInteractor: LoginInteractorProtocol?
 
     func isValidPhoneNumber(for text: String) -> Bool {
-        guard text.count == 10,
-              NSCharacterSet(charactersIn: "0123456789").isSuperset(of: NSCharacterSet(charactersIn: text) as CharacterSet) else {
-            return false
-        }
-        return true
+        text.isValidPhoneNumber()
     }
     
     func loginUser(phoneNumber: LoginPhoneNumber) {
